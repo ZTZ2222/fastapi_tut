@@ -1,5 +1,3 @@
-import json
-from pydoc import cli
 from jose import jwt
 import pytest
 from app import schemas
@@ -7,8 +5,8 @@ from app.config import settings
 
 
 def test_create_user(client):
-    res = client.post("/users/new", json={"username": "hello",
-                      "email": "hello123@gmail.com", "password": "password123"})
+    res = client.post(
+        "/users/new", json={"email": "hello123@gmail.com", "password": "password123"})
 
     new_user = schemas.UserOutput(**res.json())
     assert new_user.email == "hello123@gmail.com"

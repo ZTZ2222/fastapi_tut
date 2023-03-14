@@ -5,14 +5,12 @@ from pydantic.types import conint
 
 
 class NewUser(BaseModel):
-    username: str
     email: EmailStr
     password: str
 
 
 class UserOutput(BaseModel):
     id: int
-    username: str
     email: EmailStr
 
     class Config:
